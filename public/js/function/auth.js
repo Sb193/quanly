@@ -15,7 +15,7 @@ $(document).ready(function() {
 
         // Gửi dữ liệu lên server bằng AJAX
         $.ajax({
-            url: 'https://quanlyhocsinh.hocsinhq.workers.dev/auth/login',  // URL xử lý đăng nhập trên server
+            url: 'https://quanly.hocsinhq.workers.dev/auth/login',  // URL xử lý đăng nhập trên server
             type: 'POST',
             data: {
                 username: email,
