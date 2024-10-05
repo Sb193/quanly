@@ -17,11 +17,11 @@ $(document).ready(function() {
         $.ajax({
             url: 'https://quanly.hocsinhq.workers.dev/auth/login',  // URL xử lý đăng nhập trên server
             type: 'POST',
-            data: {
+            data: JSON.stringify({
                 username: email,
                 password: password,
                 rememberMe: rememberMe
-            },
+            }),
             success: function(response) {
                 // Xử lý phản hồi từ server
                 if (response.success) {
