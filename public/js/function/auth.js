@@ -24,8 +24,9 @@ $(document).ready(function() {
             }),
             success: function(response) {
                 // Xử lý phản hồi từ server
-                if (response.success) {
+                if (response.token) {
                     alert('Đăng nhập thành công!');
+                    localStorage.setItem("token") = response.token;
                     localStorage.setItem("status") = "200";
                     redirect("/index");
                 } else {
