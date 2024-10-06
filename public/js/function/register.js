@@ -24,7 +24,7 @@ $(document).ready(function () {
 
       // Gửi AJAX request đến API
       $.ajax({
-        url: 'https://quanlyhocsinh.hocsinhq.workers.dev/auth/register', // URL của API
+        url: 'https://quanly.hocsinhq.workers.dev/auth/register', // URL của API
         method: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(formData),
