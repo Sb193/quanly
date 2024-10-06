@@ -15,7 +15,7 @@ $(document).ready(function() {
 
         // Gửi dữ liệu lên server bằng AJAX
         $.ajax({
-            url: 'https://quanly.hocsinhq.workers.dev/auth/login',  // URL xử lý đăng nhập trên server
+            url: 'https://quanlyhocsinh.hocsinhq.workers.dev/auth/login',  // URL xử lý đăng nhập trên server
             type: 'POST',
             data: JSON.stringify({
                 username: email,
@@ -24,17 +24,21 @@ $(document).ready(function() {
             }),
             success: function(response) {
                 // Xử lý phản hồi từ server
-                if (response.token) {
+                if (response.status) {
                     alert('Đăng nhập thành công!');
-                    localStorage.setItem("token") = response.token;
-                    localStorage.setItem("status") = "200";
-                    redirect("/index");
+                    // Đặt token và status vào localStorage
+                    localStorage.setItem("token", response.token);  // Đúng cú pháp setItem
+                    localStorage.setItem("username", response.username);  // Đúng cú pháp setItem
+                    localStorage.setItem("status", "200");
+                    window.location.href = "/index"
                 } else {
                     alert('Đăng nhập thất bại: ' + response.message);
+                    localStorage.setItem("status", "401");
                 }
             },
             error: function() {
-                alert('Có lỗi xảy ra, vui lòng thử lại sau.');
+                alert('Không thể đăng nhập');
+                localStorage.setItem("status", "401");
             }
         });
     });
