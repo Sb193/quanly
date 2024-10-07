@@ -8,7 +8,7 @@ $(document).ready(function() {
     }
     // Lấy dữ liệu từ API
     $.ajax({
-        url: `http://127.0.0.1:8787/admin/account/${accountId}`,
+        url: `https://quanly.hocsinhq.workers.dev/admin/account/${accountId}`,
         method: 'GET',
         beforeSend: function(xhr) {
             const token = getToken();
@@ -53,7 +53,7 @@ $(document).ready(function() {
         };
 
         $.ajax({
-            url: 'http://127.0.0.1:8787/admin/account/edit',
+            url: 'https://quanly.hocsinhq.workers.dev/admin/account/edit',
             method: 'PUT',
             beforeSend: function(xhr) {
                 const token = getToken();
